@@ -75,7 +75,7 @@ public class Anagram {
             String word = "";
 		for (int i=0; i<str.length(); i++)
 		{
-			if (str.charAt(i)>= 'a' && str.charAt(i)<= 'z')
+			if ((str.charAt(i)>= 'a' && str.charAt(i)<= 'z') || str.charAt(i) == ' ')
 			{
 				word = word + str.charAt(i);
 			}
@@ -87,9 +87,10 @@ public class Anagram {
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
 		//System.out.println((int)(Math.random()*(str.length())-1));
+		int ran;
 		String str1 = "";
 		String temp = "";
-		int ran;
+		
 		while (str.length()>0)
 		{
 			ran = (int)(Math.random()*(str.length()));
