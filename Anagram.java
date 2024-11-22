@@ -34,9 +34,28 @@ public class Anagram {
 		
 		str1= preProcess(str1);
 		str2= preProcess(str2);
-		if (str1.length()==str2.length())
+		
+		String processedStr1 = "";
+		for (int i = 0; i < str1.length(); i++) {
+			if (str1.charAt(i) != ' ') {
+				processedStr1 = processedStr1 + str1.charAt(i);
+			}
+		}
+		String processedStr2 = "";
+		for (int i = 0; i < str2.length(); i++) {
+			if (str2.charAt(i) != ' ') {
+				processedStr2 = processedStr2 + str2.charAt(i);
+			}
+		}
+		str1 = processedStr1;
+		str2 = processedStr2;
+
+		if (str1.length()!=str2.length())
 		{
-			for (char c = 'a' ; c <= 'z' ; c++)
+			return false;
+		}
+
+		for (char c = 'a' ; c <= 'z' ; c++)
 			{
 				int count1= 0;
 				int count2= 0;
@@ -59,12 +78,7 @@ public class Anagram {
 					return false;
 				}
 			}
-		}
-		else
-		{
-		return false;
-		}
-		return true;
+			return true;
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
@@ -75,7 +89,7 @@ public class Anagram {
             String word = "";
 		for (int i=0; i<str.length(); i++)
 		{
-			if ((str.charAt(i)>= 'a' && str.charAt(i)<= 'z'))
+			if ((str.charAt(i)>= 'a' && str.charAt(i)<= 'z' || str.charAt(i)== ' '))
 			{
 				word = word + str.charAt(i);
 			}
